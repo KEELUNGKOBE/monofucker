@@ -1,34 +1,34 @@
 ﻿console.log("Monofucker Shop initialized");
 
-// 產品數據
+// 藝術品數據
 const products = [
     {
         id: 1,
-        name: "限量版T恤",
-        price: 890,
+        name: "星空下的舞者",
+        price: 28900,
         image: "images/product1.jpg",
-        description: "獨特設計的限量版T恤"
+        description: "現代抽象舞蹈藝術畫作，油彩，60x80cm"
     },
     {
         id: 2,
-        name: "經典帽子",
-        price: 590,
+        name: "城市印象",
+        price: 32500,
         image: "images/product2.jpg",
-        description: "百搭款式的棒球帽"
+        description: "都市風景水彩畫，複合媒材，50x70cm"
     },
     {
         id: 3,
-        name: "潮流外套",
-        price: 1890,
+        name: "靜謐時光",
+        price: 45800,
         image: "images/product3.jpg",
-        description: "時尚有型的街頭外套"
+        description: "極簡主義雕塑，大理石，高度45cm"
     },
     {
         id: 4,
-        name: "設計師背包",
-        price: 1290,
+        name: "自然之聲",
+        price: 39900,
         image: "images/product4.jpg",
-        description: "實用美觀的後背包"
+        description: "環保藝術裝置，回收材料創作，90x120cm"
     }
 ];
 
@@ -40,20 +40,20 @@ function displayProducts() {
         productElement.className = "product-card";
         productElement.innerHTML = `
             <h2>${product.name}</h2>
-            <p class="price">NT$ ${product.price}</p>
+            <p class="price">NT$ ${product.price.toLocaleString()}</p>
             <p>${product.description}</p>
-            <button onclick="addToCart(${product.id})">加入購物車</button>
+            <button onclick="addToCart(${product.id})">收藏藝術品</button>
         `;
         container.appendChild(productElement);
     });
 }
 
-// 加入購物車功能
+// 加入收藏功能
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {
-        alert(`已將 ${product.name} 加入購物車！`);
-        // 這裡之後可以添加真正的購物車功能
+        alert(`已將 ${product.name} 加入收藏！`);
+        // 這裡之後可以添加真正的收藏功能
     }
 }
 

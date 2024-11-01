@@ -35,6 +35,7 @@ const products = [
 // 顯示產品
 function displayProducts() {
     const container = document.getElementById("products-container");
+    container.innerHTML = ""; // 清空現有內容
     products.forEach(product => {
         const productElement = document.createElement("div");
         productElement.className = "product-card";
@@ -53,7 +54,6 @@ function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     if (product) {
         alert(`已將 ${product.name} 加入收藏！`);
-        // 這裡之後可以添加真正的收藏功能
     }
 }
 

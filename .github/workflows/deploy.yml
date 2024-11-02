@@ -15,6 +15,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./client  # 添加這行，指定工作目錄
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,6 +26,7 @@ jobs:
         with:
           node-version: 18
           cache: 'npm'
+          cache-dependency-path: './client/package-lock.json'  # 指定 package-lock.json 路徑
       - name: Install dependencies
         run: npm install
       - name: Build
@@ -32,7 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: './dist'
+          path: './client/dist'  # 修改為 client 目錄下的 dist
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
